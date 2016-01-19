@@ -72,7 +72,7 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
     switch (_nsuintegerTheme)
         {
         case 0:
-            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             uiimageBottomBar = [UIImage imageNamed:@"BOTTOM_BAR.png"];
             uiimageUpperBar = [UIImage imageNamed:@"UPPER_BAR.png"];
             
@@ -80,24 +80,38 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
                 initWithImage:uiimageBackground]];
             
 //            [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+            
             self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:uiimageUpperBar];
+
             [self.navigationController.toolbar setBarTintColor:[UIColor colorWithPatternImage:uiimageBottomBar]];
+
+            [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+
+            [self.navigationController.navigationBar
+                setTitleTextAttributes:@
+                    {
+                    NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
+                    NSForegroundColorAttributeName:[UIColor whiteColor]
+                    }];
+            [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
             break;
 
         default:
             break;
         }
 
-    //改變導覽列標題、Back Button字型與大小，
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0]}];
-
-    [self.navigationItem.backBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
+    //改變導覽列Back Button字型與大小，
+    [self.navigationItem.backBarButtonItem
+        setTitleTextAttributes:@
+            {
+            NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0],
+            }
+        forState:UIControlStateNormal];
     self.navigationItem.backBarButtonItem.title = @"返回";
     
     [_uibarbuttonitemExplantion setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
     
     [_uibarbuttonitemEdit setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
-    
 
     NSFileManager *nsfilemanagerFileManager = [NSFileManager defaultManager];
     
@@ -610,12 +624,17 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
     switch (_nsuintegerTheme)
         {
         case 0:
-            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             self.tableView.backgroundView = [[UIImageView alloc] initWithImage:uiimageBackground];
+            
+            [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
             break;
 
         default:
             [self.tableView setBackgroundView:nil];
+            
+            [_uibarbuttonitemExplantion setTintColor:nil];
+
 //            [self.tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
             break;
         }

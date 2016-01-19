@@ -352,6 +352,26 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
     //新增Bar Button用來開啟選擇要新增到哪個相簿的畫面
     UIBarButtonItem *uibarbuttonItemCreate = [[UIBarButtonItem alloc] initWithTitle:@"新增到" style:UIBarButtonItemStylePlain target:self action:@selector(createToWhere:)];
 
+    //set uitoolbarbuttonitem text color
+    switch (_nsuintegerTheme)
+        {
+        case 0:
+            [uibarbuttonitemEditCommentButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+
+            [uibarbuttonitemEditFontButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+
+            [uibarbuttonitemTrashButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            break;
+
+        default:
+            [uibarbuttonitemEditCommentButton setTintColor:nil];
+
+            [uibarbuttonitemEditFontButton setTintColor:nil];
+
+            [uibarbuttonitemTrashButton setTintColor:nil];
+            break;
+        }
+
     //設定Bar button字型
     [uibarbuttonItemCreate setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
     [self.navigationItem.backBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
@@ -579,7 +599,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
                 {
                 case 0:
                     uiimageBackground = [UIImage imageNamed:@"COMMEMT_BACKGROUND.png"];
-                    uiimageUpperBar = [UIImage imageNamed:@"COOMMENT_UPPER_BAR02.png"];
+                    uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR.png"];
                     [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
                     [_uitoolbarEditComment setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
                     break;
@@ -618,7 +638,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
                     {
                     case 0:
                         uiimageBackground = [UIImage imageNamed:@"COMMEMT_BACKGROUND.png"];
-                        uiimageUpperBar = [UIImage imageNamed:@"COOMMENT_UPPER_BAR02.png"];
+                        uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR.png"];
                         [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
                         [_uitoolbarEditComment setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
                         break;
@@ -646,7 +666,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
                     {
                     case 0:
                         uiimageBackground = [UIImage imageNamed:@"DECRYPTION_BACKGROUND.png"];
-                        uiimageUpperBar = [UIImage imageNamed:@"COOMMENT_UPPER_BAR02.png"];
+                        uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR.png"];
                         [uicontrolEncodeView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
                         [_uitoolbarEncodeBar setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
                         break;
@@ -687,7 +707,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
             {
             case 0:
                 uiimageBackground = [UIImage imageNamed:@"COMMEMT_BACKGROUND.png"];
-                uiimageUpperBar = [UIImage imageNamed:@"COOMMENT_UPPER_BAR02.png"];
+                uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR.png"];
                 [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
                 [_uitoolbarEditComment setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
                 break;
@@ -1700,6 +1720,26 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 - (void)setViewBackgroundWithTheme:(NSUInteger)Theme
 {
     _nsuintegerTheme = Theme;
+    
+    //set uitoolbarbuttonitem text color
+    switch (_nsuintegerTheme)
+        {
+        case 0:
+            [uibarbuttonitemEditCommentButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+
+            [uibarbuttonitemEditFontButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+
+            [uibarbuttonitemTrashButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            break;
+
+        default:
+            [uibarbuttonitemEditCommentButton setTintColor:nil];
+
+            [uibarbuttonitemEditFontButton setTintColor:nil];
+
+            [uibarbuttonitemTrashButton setTintColor:nil];
+            break;
+        }
     
     [self.delegate setGridViewBackgroundWithTheme:_nsuintegerTheme];
 }

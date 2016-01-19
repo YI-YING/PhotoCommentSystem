@@ -68,7 +68,7 @@
     switch (_nsuintegerTheme)
         {
         case 0:
-            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             [_uiimageBackground setImage:uiimageBackground];
             nsstringThemeName = @"紫";
             break;
@@ -369,7 +369,7 @@
         switch (_nsuintegerTheme)
             {
             case 0:
-                uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+                uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
                 [_uiimageBackground setImage:uiimageBackground];
 //                [self.view setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
                 break;
@@ -585,6 +585,15 @@
                             self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:uiimageUpperBar];
                             [self.navigationController.toolbar setBarTintColor:[UIColor colorWithPatternImage:uiimageBottomBar]];
                             
+                            [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+
+                            [self.navigationController.navigationBar
+                                setTitleTextAttributes:@
+                                    {
+                                    NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
+                                    NSForegroundColorAttributeName:[UIColor whiteColor]
+                                    }];
+                                
                             NSDictionary *nsdictionaryNewData = [[NSDictionary alloc] initWithObjectsAndKeys:@"主題",@"name",@"紫",@"attribute", nil];
                             [nsmutablearrayFontSettings setObject:nsdictionaryNewData atIndexedSubscript:3];
                             }
@@ -594,6 +603,14 @@
                             self.navigationController.navigationBar.barTintColor = nil;
                             [self.navigationController.toolbar setBarTintColor:nil];
                             
+                            [self.navigationController.navigationBar setTintColor:nil];
+
+                            [self.navigationController.navigationBar
+                                setTitleTextAttributes:@
+                                    {
+                                    NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
+                                    }];
+
                             NSDictionary *nsdictionaryNewData = [[NSDictionary alloc] initWithObjectsAndKeys:@"主題",@"name",@"無",@"attribute", nil];
                             [nsmutablearrayFontSettings setObject:nsdictionaryNewData atIndexedSubscript:3];
                             }
@@ -615,7 +632,7 @@
         switch (_nsuintegerTheme)
             {
             case 0:
-                uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+                uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
                 _uiimageBackground.image = uiimageBackground;
                 break;
 
@@ -646,7 +663,7 @@
     switch (_nsuintegerTheme)
         {
         case 0:
-            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             [self.view setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
             break;
 

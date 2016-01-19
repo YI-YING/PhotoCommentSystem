@@ -80,7 +80,7 @@ static CGSize cgsizeAssetGridThumbnailSize;
     switch (_nsuintegerTheme)
         {
         case 0:
-            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             [self.collectionView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
             break;
 
@@ -469,7 +469,7 @@ static CGSize cgsizeAssetGridThumbnailSize;
     switch (_nsuintegerTheme)
         {
         case 0:
-            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             [self.collectionView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
             break;
 

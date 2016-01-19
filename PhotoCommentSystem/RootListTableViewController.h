@@ -12,6 +12,7 @@
 @interface RootListTableViewController : UITableViewController <UITextFieldDelegate, ThemeChange>
 
 //-------------------------------------------------------------------------------------------------------------------
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemAdd;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemExplantion;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemEdit;

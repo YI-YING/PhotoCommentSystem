@@ -45,7 +45,7 @@ static NSString * const nsstringAlbumReuseIdentifier = @"Album";
     switch (_nsuintegerTheme)
         {
         case 0:
-            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND02.png"];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
             break;
 

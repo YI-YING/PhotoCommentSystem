@@ -44,22 +44,19 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="pm4-ml-WIw"/>
                         <barButtonItem title="入門指南" id="kdc-z2-Li9">
-                            <color key="tintColor" red="0.29411764709999999" green="0.68627450980000004" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="WdK-Tr-dsZ" kind="show" id="lce-zi-eBK"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Photo Comment" id="Cgc-lg-3yi">
-                        <barButtonItem key="backBarButtonItem" title="Photo Comment" id="bgH-36-5Hk"/>
+                        <barButtonItem key="backBarButtonItem" title="Photo Comment" id="JAH-CU-fMt"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="ELM-2f-hOi">
-                            <color key="tintColor" red="0.29411764705882354" green="0.68627450980392157" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="newAlbum:" destination="bKO-4e-odQ" id="bqy-r1-vD8"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="6zF-1q-nEP">
-                            <color key="tintColor" red="0.29411764709999999" green="0.68627450980000004" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="EditAlbum:" destination="bKO-4e-odQ" id="O35-0c-cOt"/>
                             </connections>
@@ -68,6 +65,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
+                        <outlet property="uibarbuttonitemAdd" destination="ELM-2f-hOi" id="r2K-gL-gnB"/>
                         <outlet property="uibarbuttonitemEdit" destination="6zF-1q-nEP" id="pUA-m6-7Nh"/>
                         <outlet property="uibarbuttonitemExplantion" destination="kdc-z2-Li9" id="hwL-h4-PxJ"/>
                         <segue destination="BCx-K6-hed" kind="show" identifier="showPhotoComment" id="eMd-TG-CC8"/>
@@ -75,10 +73,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cf-LX-upk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="uKl-Ng-fx7">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
             </objects>
             <point key="canvasLocation" x="-559" y="238"/>
         </scene>
@@ -223,7 +217,9 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="sHt-Gi-Y7f">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="rGl-Ta-QIv"/>
+                        <barButtonItem key="backBarButtonItem" title="返回" id="rGl-Ta-QIv">
+                            <color key="tintColor" red="0.29411764709999999" green="0.68627450980000004" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
@@ -264,31 +260,31 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="加密" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcO-Wv-9DH">
                                         <rect key="frame" x="71" y="142" width="42" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="金鑰 :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gae-aI-xPP">
                                         <rect key="frame" x="71" y="181" width="44" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRi-5U-5Je">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <items>
                                             <barButtonItem title="取消" id="s3l-aJ-57f">
-                                                <color key="tintColor" red="0.78431372549019607" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.29411764705882354" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="editCommentViewCancel:" destination="vXZ-lx-hvc" id="Tx6-f2-YTC"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="ZS3-pr-8DW"/>
                                             <barButtonItem title="註解" id="ObC-qW-sEn">
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="DN2-6c-M2g"/>
                                             <barButtonItem title="確定" id="j4j-Nt-S7m">
-                                                <color key="tintColor" red="0.7843137255" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.29411764705882354" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="editCommentViewEnsure:" destination="vXZ-lx-hvc" id="cAD-8K-CKQ"/>
                                                 </connections>
@@ -298,7 +294,8 @@
                                     </toolbar>
                                     <switch clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="D3V-Q6-0jN">
                                         <rect key="frame" x="14" y="142" width="51" height="31"/>
-                                        <color key="tintColor" red="0.13725490200000001" green="0.23529411759999999" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.41176470590000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="onTintColor" red="0.41176470588235292" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="switchChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="IPy-vY-Gzt"/>
                                         </connections>
@@ -351,18 +348,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <items>
                                             <barButtonItem title="取消" id="xmH-88-Mna">
-                                                <color key="tintColor" red="0.78431372549019607" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.29411764709999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="encodeViewCancel:" destination="vXZ-lx-hvc" id="zNO-Yo-hTx"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="r6N-h4-C4Q"/>
                                             <barButtonItem title="解密" id="WKh-vb-9Cn">
-                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="GVy-au-M20"/>
                                             <barButtonItem title="確定" id="ht2-de-aF3">
-                                                <color key="tintColor" red="0.78431372549019607" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.29411764709999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="encodeViewEnsure:" destination="vXZ-lx-hvc" id="fIb-Jh-woC"/>
                                                 </connections>
@@ -385,7 +382,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="請輸入密碼：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gK-af-Mqj">
                                         <rect key="frame" x="8" y="51" width="102" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.13725490196078433" green="0.23529411764705882" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密碼錯誤" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMC-0d-zjb">
@@ -518,7 +515,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="546" y="238"/>
+            <point key="canvasLocation" x="514" y="238"/>
         </scene>
         <!--哪裡？-->
         <scene sceneID="fKC-9k-PBf">
@@ -550,7 +547,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAR-JA-JTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="546" y="947"/>
+            <point key="canvasLocation" x="514" y="943"/>
         </scene>
         <!--文字設定-->
         <scene sceneID="fP9-fY-b2z">
@@ -564,7 +561,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MAINPAGE_BACKGROUND02" translatesAutoresizingMaskIntoConstraints="NO" id="DbQ-YU-na9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MAINPAGE_BACKGROUND" translatesAutoresizingMaskIntoConstraints="NO" id="DbQ-YU-na9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預覽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReG-PE-W69">
@@ -642,10 +639,10 @@
         <image name="Comment" width="640" height="960"/>
         <image name="Create" width="640" height="960"/>
         <image name="Delete" width="640" height="960"/>
-        <image name="MAINPAGE_BACKGROUND02" width="320" height="568"/>
+        <image name="MAINPAGE_BACKGROUND" width="320" height="568"/>
         <image name="Set" width="640" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eMd-TG-CC8"/>
+        <segue reference="oWi-gE-fdC"/>
     </inferredMetricsTieBreakers>
 </document>
