@@ -481,17 +481,22 @@
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
                         <outlet property="uibarbutoonitemEditCommentEnsureButton" destination="j4j-Nt-S7m" id="U5W-Ic-Q2X"/>
+                        <outlet property="uibarbuttonitemDecodeNone" destination="WKh-vb-9Cn" id="lTl-cr-EcJ"/>
                         <outlet property="uibarbuttonitemEditCommentButton" destination="mqe-a2-umr" id="GcW-Ab-F9N"/>
                         <outlet property="uibarbuttonitemEditCommentCancelButton" destination="s3l-aJ-57f" id="BWY-OA-vDT"/>
                         <outlet property="uibarbuttonitemEditFontButton" destination="Svt-hI-9aP" id="pFV-9N-TDN"/>
                         <outlet property="uibarbuttonitemEncodeCancelButton" destination="xmH-88-Mna" id="6qd-4n-GMD"/>
                         <outlet property="uibarbuttonitemEncodeSureButton" destination="ht2-de-aF3" id="5pn-Y1-dHO"/>
+                        <outlet property="uibarbuttonitemNone" destination="ObC-qW-sEn" id="pfh-Qh-cmJ"/>
                         <outlet property="uibarbuttonitemTrashButton" destination="F2C-3N-XHz" id="nlE-Hr-nUT"/>
                         <outlet property="uicontrolEditCommentView" destination="UqA-Zx-xfM" id="ycg-A6-aq9"/>
                         <outlet property="uicontrolEncodeView" destination="QAv-Cw-gXu" id="dJs-sK-c2x"/>
                         <outlet property="uicontrolEncrytTextView" destination="5i2-dq-Dff" id="2ND-AL-iRr"/>
                         <outlet property="uiimageviewImageView" destination="mxD-is-JwA" id="HeG-dO-jDU"/>
+                        <outlet property="uilabelDecodeNone" destination="3gK-af-Mqj" id="jDK-eP-xSy"/>
                         <outlet property="uilabelDecodeWrongAlert" destination="pMC-0d-zjb" id="xd3-Qo-HfZ"/>
+                        <outlet property="uilabelEncode" destination="zcO-Wv-9DH" id="oEb-JD-mBc"/>
+                        <outlet property="uilabelKey" destination="Gae-aI-xPP" id="oOn-Ag-LKd"/>
                         <outlet property="uiswitchPasswardSwitch" destination="D3V-Q6-0jN" id="0SO-Mg-RfI"/>
                         <outlet property="uitextfieldEncodeTextField" destination="N7K-fQ-rEe" id="qUj-E5-D7h"/>
                         <outlet property="uitextfieldPasswardTextField" destination="4d5-K1-Foq" id="RZV-Ix-WJB"/>

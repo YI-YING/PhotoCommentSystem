@@ -96,6 +96,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *uitextfieldPasswardTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemEditCommentCancelButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbutoonitemEditCommentEnsureButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemNone;
+@property (weak, nonatomic) IBOutlet UILabel *uilabelEncode;
+@property (weak, nonatomic) IBOutlet UILabel *uilabelKey;
 @property (weak, nonatomic) IBOutlet UISwitch *uiswitchPasswardSwitch;
 @property uint uintCnt;
 //@property uint uintDataLen;
@@ -107,8 +110,10 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *uitoolbarEncodeBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemEncodeCancelButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemEncodeSureButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemDecodeNone;
 @property (strong, nonatomic) IBOutlet UITextField *uitextfieldEncodeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *uilabelDecodeWrongAlert;
+@property (weak, nonatomic) IBOutlet UILabel *uilabelDecodeNone;
 @property BOOL boolHaveEncoded;
 
 //----------------------------------------------------------------------------------------
