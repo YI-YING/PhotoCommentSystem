@@ -84,6 +84,11 @@ static CGSize cgsizeAssetGridThumbnailSize;
             [self.collectionView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
             break;
 
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+            [self.collectionView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
+            break;
+
         default:
             break;
         }
@@ -470,6 +475,11 @@ static CGSize cgsizeAssetGridThumbnailSize;
         {
         case 0:
             uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
+            [self.collectionView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
+            break;
+
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
             [self.collectionView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
             break;
 

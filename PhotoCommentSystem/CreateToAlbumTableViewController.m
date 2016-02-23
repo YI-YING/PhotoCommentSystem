@@ -49,6 +49,11 @@ static NSString * const nsstringAlbumReuseIdentifier = @"Album";
             [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
             break;
 
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+            [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:uiimageBackground]];
+            break;
+
         default:
             break;
         }
@@ -176,6 +181,11 @@ static NSString * const nsstringAlbumReuseIdentifier = @"Album";
             [uitableviewCell.textLabel setTextColor:[UIColor whiteColor]];
             break;
 
+        case 1:
+            uitableviewCell.backgroundColor = [UIColor clearColor];
+            [uitableviewCell.textLabel setTextColor:[UIColor blackColor]];
+            break;
+
         default:
             break;
         }
@@ -220,6 +230,11 @@ static NSString * const nsstringAlbumReuseIdentifier = @"Album";
         case 0:
             [uilabelHeader setBackgroundColor:[UIColor clearColor]];
             [uilabelHeader setTextColor:[UIColor redColor]];
+            break;
+
+        case 1:
+            [uilabelHeader setBackgroundColor:[UIColor clearColor]];
+            [uilabelHeader setTextColor:[UIColor colorWithRed:0.294 green:0.294 blue:0.784 alpha:1]];
             break;
 
         default:

@@ -69,8 +69,15 @@
         {
         case 0:
             uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
+//            [uitextviewFontDemoView setBackgroundColor:[UIColor clearColor]];
             [_uiimageBackground setImage:uiimageBackground];
-            nsstringThemeName = @"紫";
+            nsstringThemeName = @"紫黑";
+            break;
+
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+            [_uiimageBackground setImage:uiimageBackground];
+            nsstringThemeName = @"紫白";
             break;
 
         default:
@@ -92,7 +99,7 @@
     self.nsarrayFontSizes = [[NSArray alloc] initWithObjects:@"小",@"中",@"大", nil];
     self.nsarrayFontColors = [[NSArray alloc] initWithObjects:@"白",@"紅",@"藍", nil];
     self.nsarrayFontTypes = [[NSArray alloc] initWithObjects:@"娃娃體",@"翩翩體",@"魏碑", nil];
-    self.nsarrayThemes = [[NSArray alloc] initWithObjects:@"紫",@"無", nil];
+    self.nsarrayThemes = [[NSArray alloc] initWithObjects:@"紫黑",@"紫白",@"無", nil];
     
     
     //font Size Setting
@@ -239,6 +246,11 @@
                 [tableView setBackgroundColor:[UIColor blackColor]];
                 break;
 
+            case 1:
+                fontsettableviewcellCell.backgroundColor = [UIColor blackColor];
+                [tableView setBackgroundColor:[UIColor blackColor]];
+                break;
+
             default:
                 fontsettableviewcellCell.backgroundColor = [UIColor whiteColor];
                 [tableView setBackgroundColor:[UIColor whiteColor]];
@@ -304,8 +316,17 @@
                 [tableView setBackgroundColor:[UIColor blackColor]];
                 break;
 
+            case 1:
+                uitableviewcellCell.backgroundColor = [UIColor blackColor];
+                [uitableviewcellCell.textLabel setTextColor:[UIColor blueColor]];
+                
+                [tableView setBackgroundColor:[UIColor blackColor]];
+                break;
+
             default:
                 uitableviewcellCell.backgroundColor = [UIColor whiteColor];
+                [uitableviewcellCell.textLabel setTextColor:[UIColor colorWithRed:0.043 green:0.418 blue:1 alpha:1]];
+
                 [tableView setBackgroundColor:[UIColor whiteColor]];
                 break;
             }
@@ -372,6 +393,11 @@
                 uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
                 [_uiimageBackground setImage:uiimageBackground];
 //                [self.view setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+                break;
+
+            case 1:
+                uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+                [_uiimageBackground setImage:uiimageBackground];
                 break;
 
             default:
@@ -579,6 +605,7 @@
                         {
                         case 0:
                             {
+//                            [uitextviewFontDemoView setBackgroundColor:[UIColor clearColor]];
                             uiimageBottomBar = [UIImage imageNamed:@"BOTTOM_BAR.png"];
                             uiimageUpperBar = [UIImage imageNamed:@"UPPER_BAR.png"];
                             
@@ -594,12 +621,37 @@
                                     NSForegroundColorAttributeName:[UIColor whiteColor]
                                     }];
                                 
-                            NSDictionary *nsdictionaryNewData = [[NSDictionary alloc] initWithObjectsAndKeys:@"主題",@"name",@"紫",@"attribute", nil];
+                            NSDictionary *nsdictionaryNewData = [[NSDictionary alloc] initWithObjectsAndKeys:@"主題",@"name",@"紫黑",@"attribute", nil];
                             [nsmutablearrayFontSettings setObject:nsdictionaryNewData atIndexedSubscript:3];
                             }
                             break;
+                            
                         case 1:
                             {
+//                            [uitextviewFontDemoView setBackgroundColor:[UIColor blackColor]];
+                            uiimageBottomBar = [UIImage imageNamed:@"BOTTOM_BAR_White.png"];
+                            uiimageUpperBar = [UIImage imageNamed:@"UPPER_BAR_White.png"];
+                            
+                            self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:uiimageUpperBar];
+                            [self.navigationController.toolbar setBarTintColor:[UIColor colorWithPatternImage:uiimageBottomBar]];
+                            
+                            [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+
+                            [self.navigationController.navigationBar
+                                setTitleTextAttributes:@
+                                    {
+                                    NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
+                                    NSForegroundColorAttributeName:[UIColor colorWithRed:0.294 green:1 blue:1 alpha:1]
+                                    }];
+                                
+                            NSDictionary *nsdictionaryNewData = [[NSDictionary alloc] initWithObjectsAndKeys:@"主題",@"name",@"紫白",@"attribute", nil];
+                            [nsmutablearrayFontSettings setObject:nsdictionaryNewData atIndexedSubscript:3];
+                            }
+                            break;
+                            
+                        default:
+                            {
+//                            [uitextviewFontDemoView setBackgroundColor:[UIColor blackColor]];
                             self.navigationController.navigationBar.barTintColor = nil;
                             [self.navigationController.toolbar setBarTintColor:nil];
                             
@@ -635,7 +687,12 @@
                 uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
                 _uiimageBackground.image = uiimageBackground;
                 break;
-
+                
+            case 1:
+                uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+                _uiimageBackground.image = uiimageBackground;
+                break;
+                
             default:
                 [_uiimageBackground setImage:nil];
                 self.view.backgroundColor = [UIColor colorWithRed:0.2 green:0.7 blue:0.7 alpha:1.0];
@@ -663,11 +720,19 @@
     switch (_nsuintegerTheme)
         {
         case 0:
+            [uitextviewFontDemoView setBackgroundColor:[UIColor clearColor]];
             uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
             [self.view setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
             break;
-
+            
+        case 1:
+            [uitextviewFontDemoView setBackgroundColor:[UIColor blackColor]];
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+            [self.view setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+            break;
+            
         default:
+            [uitextviewFontDemoView setBackgroundColor:[UIColor blackColor]];
             self.view.backgroundColor = [UIColor colorWithRed:0.2 green:0.7 blue:0.7 alpha:1.0];
             break;
         }

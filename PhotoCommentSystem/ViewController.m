@@ -363,6 +363,14 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
             [uibarbuttonitemTrashButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
             break;
 
+        case 1:
+            [uibarbuttonitemEditCommentButton setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+
+            [uibarbuttonitemEditFontButton setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+
+            [uibarbuttonitemTrashButton setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+            break;
+
         default:
             [uibarbuttonitemEditCommentButton setTintColor:nil];
 
@@ -578,9 +586,38 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
             
             [uibarbuttonitemEditCommentCancelButton setTintColor:[UIColor colorWithRed:0.294 green:1 blue:1 alpha:1]];
             
-            [uiswitchPasswardSwitch setTintColor:[UIColor colorWithRed:0.412 green:0 blue:1 alpha:1]];
-            [uiswitchPasswardSwitch setOnTintColor:[UIColor colorWithRed:0.412 green:0 blue:1 alpha:1]];
+            [uiswitchPasswardSwitch setTintColor:[UIColor colorWithRed:0.294 green:0.568 blue:0.49 alpha:1]];
+            [uiswitchPasswardSwitch setOnTintColor:[UIColor colorWithRed:0.294 green:0.568 blue:0.49 alpha:1]];
+            [uiswitchPasswardSwitch setThumbTintColor:[UIColor whiteColor]];
+
+//            [uitextviewCommentTextView setBackgroundColor:[UIColor whiteColor]];
+//            [uitextfieldPasswardTextField setBackgroundColor:[UIColor whiteColor]];
+//            [_uitextviewEncryptTextShow setBackgroundColor:[UIColor whiteColor]];
             break;
+
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"COMMEMT_BACKGROUND_White.png"];
+            uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR_White.png"];
+            [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+            [_uitoolbarEditComment setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
+            
+            [_uibarbuttonitemNone setTintColor:[UIColor blackColor]];
+            [_uilabelEncode setTextColor:[UIColor blackColor]];
+            [_uilabelKey setTextColor:[UIColor blackColor]];
+            
+            [uibarbutoonitemEditCommentEnsureButton setTintColor:[UIColor redColor]];
+            
+            [uibarbuttonitemEditCommentCancelButton setTintColor:[UIColor redColor]];
+            
+            [uiswitchPasswardSwitch setTintColor:[UIColor clearColor]];
+            [uiswitchPasswardSwitch setOnTintColor:[UIColor colorWithRed:0.412 green:0 blue:1 alpha:1]];
+            [uiswitchPasswardSwitch setThumbTintColor:[UIColor colorWithRed:0.823 green:0.823 blue:0.823 alpha:1]];
+            
+//            [uitextviewCommentTextView setBackgroundColor:[UIColor colorWithRed:0.823 green:0.823 blue:0.823 alpha:1]];
+//            [uitextfieldPasswardTextField setBackgroundColor:[UIColor colorWithRed:0.823 green:0.823 blue:0.823 alpha:1]];
+//            [_uitextviewEncryptTextShow setBackgroundColor:[UIColor colorWithRed:0.823 green:0.823 blue:0.823 alpha:1]];
+            break;
+
         default:
             [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithRed:0.84 green:0.92 blue:1 alpha:1]];
             [_uitoolbarEditComment setBarTintColor:[UIColor colorWithRed:0.41 green:0.5 blue:0.99 alpha:1]];
@@ -595,6 +632,11 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 
             [uiswitchPasswardSwitch setTintColor:[UIColor colorWithRed:0.137 green:0.235 blue:0.784 alpha:1]];
             [uiswitchPasswardSwitch setOnTintColor:nil];
+            [uiswitchPasswardSwitch setThumbTintColor:[UIColor whiteColor]];
+
+//            [uitextviewCommentTextView setBackgroundColor:[UIColor whiteColor]];
+//            [uitextfieldPasswardTextField setBackgroundColor:[UIColor whiteColor]];
+//            [_uitextviewEncryptTextShow setBackgroundColor:[UIColor whiteColor]];
             break;
         }
 }
@@ -691,8 +733,26 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
                         [uibarbuttonitemEncodeCancelButton setTintColor:[UIColor colorWithRed:0.294 green:1 blue:1 alpha:1]];
 
                         [uibarbuttonitemEncodeSureButton setTintColor:[UIColor colorWithRed:0.294 green:1 blue:1 alpha:1]];
-                        
+
+//                        [uitextfieldEncodeTextField setBackgroundColor:[UIColor whiteColor]];
                         break;
+
+                    case 1:
+                        uiimageBackground = [UIImage imageNamed:@"DECRYPTION_BACKGROUND_White.png"];
+                        uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR_White.png"];
+                        [uicontrolEncodeView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+                        [_uitoolbarEncodeBar setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
+                        
+                        [_uibarbuttonitemDecodeNone setTintColor:[UIColor blackColor]];
+                        [_uilabelDecodeNone setTextColor:[UIColor blackColor]];
+
+                        [uibarbuttonitemEncodeCancelButton setTintColor:[UIColor redColor]];
+
+                        [uibarbuttonitemEncodeSureButton setTintColor:[UIColor redColor]];
+                        
+//                        [uitextfieldEncodeTextField setBackgroundColor:[UIColor colorWithRed:0.823 green:0.823 blue:0.823 alpha:1]];
+                        break;
+
                     default:
                         [uicontrolEncodeView setBackgroundColor:[UIColor colorWithRed:0.84 green:0.92 blue:1 alpha:1]];
                         [_uitoolbarEncodeBar setBarTintColor:[UIColor colorWithRed:0.41 green:0.5 blue:0.99 alpha:1]];
@@ -703,6 +763,8 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
                         [uibarbuttonitemEncodeCancelButton setTintColor:[UIColor colorWithRed:0.784 green:0.137 blue:0.137 alpha:1]];
 
                         [uibarbuttonitemEncodeSureButton setTintColor:[UIColor colorWithRed:0.784 green:0.137 blue:0.137 alpha:1]];
+
+//                        [uitextfieldEncodeTextField setBackgroundColor:[UIColor whiteColor]];
                         break;
                     }
 
@@ -1390,6 +1452,15 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
                 uiimageBackground = [UIImage imageNamed:@"ENCRYPTION_BACKGROUND.png"];
                 [_uicontrolEncrytTextView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
                 break;
+
+            case 1:
+                uiimageBackground = [UIImage imageNamed:@"COMMEMT_BACKGROUND2_White.png"];
+                [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+                
+                uiimageBackground = [UIImage imageNamed:@"ENCRYPTION_BACKGROUND_White.png"];
+                [_uicontrolEncrytTextView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+                break;
+
             default:
                 [_uicontrolEncrytTextView setBackgroundColor:[UIColor colorWithRed:0.84 green:0.92 blue:1 alpha:1]];
                 break;
@@ -1437,6 +1508,19 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
         [uitextfieldPasswardTextField resignFirstResponder];
         uitextfieldPasswardTextField.hidden = YES;
         
+        UIImage *uiimageBackground = nil;
+
+        switch (_nsuintegerTheme)
+            {
+            case 1:
+                uiimageBackground = [UIImage imageNamed:@"COMMEMT_BACKGROUND_White.png"];
+                [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+                break;
+
+            default:
+                break;
+            }
+            
         self.uitextviewEncryptTextShow.hidden = YES;
         self.uicontrolEncrytTextView.hidden = YES;
         }
@@ -1745,6 +1829,14 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
             [uibarbuttonitemEditFontButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
 
             [uibarbuttonitemTrashButton setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            break;
+
+        case 1:
+            [uibarbuttonitemEditCommentButton setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+
+            [uibarbuttonitemEditFontButton setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+
+            [uibarbuttonitemTrashButton setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
             break;
 
         default:

@@ -95,7 +95,28 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
                     }];
             [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
             break;
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+            uiimageBottomBar = [UIImage imageNamed:@"BOTTOM_BAR_White.png"];
+            uiimageUpperBar = [UIImage imageNamed:@"UPPER_BAR_White.png"];
+            
+            [self.tableView setBackgroundView:[[UIImageView alloc]
+                initWithImage:uiimageBackground]];
+            
+            self.navigationController.navigationBar.barTintColor = [UIColor colorWithPatternImage:uiimageUpperBar];
 
+            [self.navigationController.toolbar setBarTintColor:[UIColor colorWithPatternImage:uiimageBottomBar]];
+
+            [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+
+            [self.navigationController.navigationBar
+                setTitleTextAttributes:@
+                    {
+                    NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
+                    NSForegroundColorAttributeName:[UIColor colorWithRed:0.294 green:1 blue:1 alpha:1]
+                    }];
+            [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+            break;
         default:
             break;
         }
@@ -254,7 +275,7 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
         uitableviewCell = [tableView dequeueReusableCellWithIdentifier:nsstringCameraRollReuseIdentifier];
         if (uitableviewCell == nil)
             {
-            uitableviewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nsstringCameraRollReuseIdentifier];
+            uitableviewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nsstringCameraRollReuseIdentifier];
             
             UITextField *uitextfield = [[UITextField alloc] initWithFrame:CGRectMake(15, 9, 200, 30)];
             uitextfield.enabled = NO;
@@ -262,6 +283,10 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
             uitextfield.delegate = self;
             [uitextfield addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditingDidEndOnExit];
             [uitableviewCell addSubview:uitextfield];
+            
+            UILabel *uilabel = [[UILabel alloc] initWithFrame:CGRectMake(uitextfield.frame.origin.x +215, uitextfield.frame.origin.y, 50, 30)];
+            uilabel.userInteractionEnabled = NO;
+            [uitableviewCell addSubview: uilabel];
             }
         nsstringLocalizedTitle = NSLocalizedString(@"Camera Roll", @"");
         
@@ -275,13 +300,17 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
 
         if (uitableviewCell == nil)
             {
-            uitableviewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nsstringPhotoCommentReuseIdentifier];
+            uitableviewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nsstringPhotoCommentReuseIdentifier];
             
             UITextField *uitextfield = [[UITextField alloc] init];
             uitextfield.returnKeyType = UIReturnKeyDone;
             uitextfield.delegate = self;
             [uitextfield addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditingDidEndOnExit];
             [uitableviewCell addSubview:uitextfield];
+
+            UILabel *uilabel = [[UILabel alloc] initWithFrame:CGRectMake(uitextfield.frame.origin.x +215, uitextfield.frame.origin.y, 50, 30)];
+            uilabel.userInteractionEnabled = NO;
+            [uitableviewCell addSubview: uilabel];
             }
         NSString *nsstringAlbumName = [_nsmutabledictionaryAlbumName valueForKey: _nsmutablearrayAlbumsFetchResults[indexPath.row]];
         
@@ -292,10 +321,13 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
         nsstringSubTitle = [NSString stringWithFormat:@"%i",nsarrayAssets.count];
         }
     UITextField *uitextfield = nil;
+    UILabel *uilabel = nil;
     for (UIView *uiview in uitableviewCell.subviews)
         {
         if ([uiview isMemberOfClass:[UITextField class]])
                 uitextfield = (UITextField *)uiview;
+        if ([uiview isMemberOfClass:[UILabel class]])
+            uilabel = (UILabel *)uiview;
         }
     uitextfield.text = nsstringLocalizedTitle;
     
@@ -313,25 +345,31 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
     
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    uitableviewCell.detailTextLabel.text = nsstringSubTitle;
-    [uitableviewCell.detailTextLabel setFont:[UIFont fontWithName:@"STKaiTi-TC-Regular" size:21]];
+    uilabel.frame = CGRectMake(uitextfield.frame.origin.x +215, uitextfield.frame.origin.y, 50, 30);
+    uilabel.text = nsstringSubTitle;
+    [uilabel setFont:[UIFont fontWithName:@"STKaiTi-TC-Regular" size:21]];
 
     //Set Theme
     switch (_nsuintegerTheme)
         {
         case 0:
-            uitextfield.textColor = [UIColor whiteColor];
-            uitableviewCell.detailTextLabel.textColor = [UIColor whiteColor];
+            uitextfield.textColor = self.tableView.editing && uitextfield.tag == -1 ? [UIColor grayColor]:[UIColor whiteColor];
+            uilabel.textColor = self.tableView.editing && uitextfield.tag == -1 ? [UIColor grayColor]:[UIColor whiteColor];
+            [uitableviewCell setBackgroundColor:[UIColor clearColor]];
+            break;
+
+        case 1:
+            uitextfield.textColor = self.tableView.editing && uitextfield.tag == -1 ? [UIColor grayColor]:[UIColor blackColor];
+            uilabel.textColor = self.tableView.editing && uitextfield.tag == -1 ? [UIColor grayColor]:[UIColor blackColor];
             [uitableviewCell setBackgroundColor:[UIColor clearColor]];
             break;
 
         default:
-            uitextfield.textColor = [UIColor blackColor];
-            uitableviewCell.detailTextLabel.textColor = [UIColor blackColor];
+            uitextfield.textColor = self.tableView.editing && uitextfield.tag == -1 ? [UIColor grayColor]:[UIColor blackColor];
+            uilabel.textColor = self.tableView.editing && uitextfield.tag == -1 ? [UIColor grayColor]:[UIColor blackColor];
             [uitableviewCell setBackgroundColor:[UIColor whiteColor]];
             break;
         }
-    
     return uitableviewCell;
 }
 
@@ -375,6 +413,11 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
 //            uiimageBachground = [UIImage imageNamed:@"FolderArea_BACKGROUND.png"];
             [uilabelHeader setBackgroundColor:[UIColor clearColor]];//[UIColor colorWithPatternImage:uiimageBachground]];
             [uilabelHeader setTextColor:[UIColor redColor]];
+            break;
+
+        case 1:
+            [uilabelHeader setBackgroundColor:[UIColor clearColor]];//[UIColor colorWithPatternImage:uiimageBachground]];
+            [uilabelHeader setTextColor:[UIColor colorWithRed:0.294 green:0.294 blue:0.784 alpha:1]];
             break;
 
         default:
@@ -517,12 +560,14 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     
     UITextField *uitextfield = nil;
+    UILabel *uilabel = nil;
     if (self.tableView.editing)
         {
         [_uibarbuttonitemEdit setTitle:@"Done"];
         [_uibarbuttonitemEdit setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
         
         for (UITableViewCell *uitableviewcell in self.tableView.visibleCells)
+            {
             for (UIView *uiview in uitableviewcell.subviews)
                 {
                 if ([uiview isMemberOfClass:[UITextField class]])
@@ -542,7 +587,22 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
                         completion:nil];
                     }
     
+                if ([uiview isMemberOfClass:[UILabel class]])
+                    {
+                    uilabel = (UILabel *)uiview;
+                    
+                    [UIView animateWithDuration:0.3 delay:0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                        animations:^
+                            {
+                            [uilabel setFrame:CGRectMake(uitextfield.frame.origin.x +215, uitextfield.frame.origin.y, 50, 30)];
+                            if (uitextfield.tag == -1)
+                                uilabel.textColor = [UIColor grayColor];
+                            }
+                        completion:nil];
+                    }
                 }
+            }
         }
     else
         {
@@ -568,6 +628,9 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
                                     case 0:
                                         uitextfield.textColor = [UIColor whiteColor];
                                         break;
+                                    case 1:
+                                        uitextfield.textColor = [UIColor blackColor];
+                                        break;
                                     default:
                                         uitextfield.textColor = [UIColor blackColor];
                                     }
@@ -578,6 +641,32 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
                         completion:nil];
                     }
     
+                if ([uiview isMemberOfClass:[UILabel class]])
+                    {
+                    uilabel = (UILabel *)uiview;
+                    
+                    [UIView animateWithDuration:0.3 delay:0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                        animations:^
+                            {
+                            [uilabel setFrame:CGRectMake(uitextfield.frame.origin.x +215, uitextfield.frame.origin.y, 50, 30)];
+                            if (uitextfield.tag == -1)
+                                {
+                                switch (_nsuintegerTheme)
+                                    {
+                                    case 0:
+                                        uilabel.textColor = [UIColor whiteColor];
+                                        break;
+                                    case 1:
+                                        uilabel.textColor = [UIColor blackColor];
+                                        break;
+                                    default:
+                                        uilabel.textColor = [UIColor blackColor];
+                                    }
+                                }
+                            }
+                        completion:nil];
+                    }
                 }
         if (_uitextfieldCurrent != nil)
             {
@@ -628,6 +717,13 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
             self.tableView.backgroundView = [[UIImageView alloc] initWithImage:uiimageBackground];
             
             [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            break;
+
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+            self.tableView.backgroundView = [[UIImageView alloc] initWithImage:uiimageBackground];
+            
+            [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
             break;
 
         default:
