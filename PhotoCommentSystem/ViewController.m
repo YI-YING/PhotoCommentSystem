@@ -609,7 +609,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
             
             [uibarbuttonitemEditCommentCancelButton setTintColor:[UIColor redColor]];
             
-            [uiswitchPasswardSwitch setTintColor:[UIColor clearColor]];
+            [uiswitchPasswardSwitch setTintColor:[UIColor colorWithRed:0.412 green:0 blue:1 alpha:1]];
             [uiswitchPasswardSwitch setOnTintColor:[UIColor colorWithRed:0.412 green:0 blue:1 alpha:1]];
             [uiswitchPasswardSwitch setThumbTintColor:[UIColor colorWithRed:0.823 green:0.823 blue:0.823 alpha:1]];
             
@@ -718,6 +718,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
     
                 UIImage *uiimageBackground = nil;
                 UIImage *uiimageUpperBar = nil;
+                UIImage *uiimageTextFieldBackground = nil;
         
                 switch (_nsuintegerTheme)
                     {
@@ -734,12 +735,12 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 
                         [uibarbuttonitemEncodeSureButton setTintColor:[UIColor colorWithRed:0.294 green:1 blue:1 alpha:1]];
 
-//                        [uitextfieldEncodeTextField setBackgroundColor:[UIColor whiteColor]];
                         break;
 
                     case 1:
                         uiimageBackground = [UIImage imageNamed:@"DECRYPTION_BACKGROUND_White.png"];
                         uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR_White.png"];
+                        uiimageTextFieldBackground = [UIImage imageNamed:@"DECRYPTION_EDITOR_BACKGROUND_White.png"];
                         [uicontrolEncodeView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
                         [_uitoolbarEncodeBar setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
                         
@@ -767,6 +768,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 //                        [uitextfieldEncodeTextField setBackgroundColor:[UIColor whiteColor]];
                         break;
                     }
+                [uitextfieldEncodeTextField setBackground:uiimageTextFieldBackground];
 
                 uicontrolEncodeView.hidden = NO;
                 }];
@@ -2078,7 +2080,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 }
 
 //----------------------------------------------------------------------------------------
-#pragma mark- Perform Yes Method | No Metho
+#pragma mark- Perform Yes Method | No Method
 
 - (void)choseWhetherSaveOriginalImage
 {

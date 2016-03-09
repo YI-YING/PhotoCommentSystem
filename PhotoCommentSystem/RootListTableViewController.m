@@ -36,6 +36,7 @@ static NSString * const nsstringPhotoCommentReuseIdentifier = @"PhotoCommentCell
 
 static NSString * const nsstringCameraRollSegue = @"showCameraRoll";
 static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
+static NSString * const nsstringFontSetViewSegue = @"fontSetViewShow";
 
 //----------------------------------------------------------------------------------------
 
@@ -93,7 +94,9 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
                     NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
                     NSForegroundColorAttributeName:[UIColor whiteColor]
                     }];
+            
             [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            [_uibarbuttonitemSetting setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
             break;
         case 1:
             uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
@@ -115,7 +118,9 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
                     NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
                     NSForegroundColorAttributeName:[UIColor colorWithRed:0.294 green:1 blue:1 alpha:1]
                     }];
+
             [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+            [_uibarbuttonitemSetting setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
             break;
         default:
             break;
@@ -129,11 +134,23 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
             }
         forState:UIControlStateNormal];
     self.navigationItem.backBarButtonItem.title = @"返回";
-    
+
     [_uibarbuttonitemExplantion setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
     
     [_uibarbuttonitemEdit setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
+    
+    [_uibarbuttonitemSetting setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
+    
+    //custom Addbutton Image
+    uiimageBackground = [[UIImage imageNamed:@"AddButton.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
+//    UIButton *uibutton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+//    [uibutton setBackgroundImage:uiimageBackground forState:UIControlStateNormal];
+//    [uibutton addTarget:self action:@selector(newAlbum:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *uibarbuttonitem = [[UIBarButtonItem alloc] initWithImage:uiimageBackground style:UIBarButtonItemStylePlain target:self action:@selector(newAlbum:)];
+    self.navigationItem.leftBarButtonItem = uibarbuttonitem;
+    
     NSFileManager *nsfilemanagerFileManager = [NSFileManager defaultManager];
     
     //確認沙盒裡有albumname.plist 如果沒有就建立一個
@@ -232,6 +249,13 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
         
         gridviewcollectionviewcontroller.delegate = self;
         }
+    else if ([segue.identifier isEqualToString:nsstringFontSetViewSegue])
+        {
+        FontSetViewController *fontsetviewcontroller = segue.destinationViewController;
+        fontsetviewcontroller.delegate = self;
+        }
+    else
+        ;
     gridviewcollectionviewcontroller.nsuintegerTheme = _nsuintegerTheme;
 
 }
@@ -509,7 +533,7 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
 
 #pragma mark - IBAction Methods
 
-- (IBAction)newAlbum:(id)sender
+- (void)newAlbum:(id)sender
 {
     // Prompt user from new album title.
     UIAlertController *uialertcontroller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"New Album", @"") message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -717,6 +741,7 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
             self.tableView.backgroundView = [[UIImageView alloc] initWithImage:uiimageBackground];
             
             [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            [_uibarbuttonitemSetting setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
             break;
 
         case 1:
@@ -724,16 +749,61 @@ static NSString * const nsstringPhotoCommentSegue = @"showPhotoComment";
             self.tableView.backgroundView = [[UIImageView alloc] initWithImage:uiimageBackground];
             
             [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+            [_uibarbuttonitemSetting setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
             break;
 
         default:
             [self.tableView setBackgroundView:nil];
             
             [_uibarbuttonitemExplantion setTintColor:nil];
+            [_uibarbuttonitemSetting setTintColor:nil];
 
 //            [self.tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
             break;
         }
+}
+
+//----------------------------------------------------------------------------------------
+
+#pragma mark- FontSetDelegate Methods
+
+- (void)setViewBackgroundWithTheme:(NSUInteger)Theme
+{
+    _nsuintegerTheme = Theme;
+    UIImage *uiimageBackground = nil;
+    
+    //Set Theme
+    switch (_nsuintegerTheme)
+        {
+        case 0:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND.png"];
+            self.tableView.backgroundView = [[UIImageView alloc] initWithImage:uiimageBackground];
+            
+            [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            [_uibarbuttonitemSetting setTintColor:[UIColor colorWithRed:0.294 green:0.686 blue:0.49 alpha:1]];
+            break;
+
+        case 1:
+            uiimageBackground = [UIImage imageNamed:@"MAINPAGE_BACKGROUND_White.png"];
+            self.tableView.backgroundView = [[UIImageView alloc] initWithImage:uiimageBackground];
+            
+            [_uibarbuttonitemExplantion setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+            [_uibarbuttonitemSetting setTintColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+            break;
+
+        default:
+            [self.tableView setBackgroundView:nil];
+            
+            [_uibarbuttonitemExplantion setTintColor:nil];
+            [_uibarbuttonitemSetting setTintColor:nil];
+            break;
+        }
+}
+
+//----------------------------------------------------------------------------------------
+
+- (void)fontSettingPassToViewController:(NSString *)fontSizeValue ColorSet:(NSString *)fontColorValue TypeSet:(NSString *)fontTypeValue FontSizeLast:(NSIndexPath *)fontSizeIndexPath FontColorLast:(NSIndexPath *)fontColorIndexPath FontTypeLast:(NSIndexPath *)fontTypeIndexPath
+{
 }
 
 //----------------------------------------------------------------------------------------

@@ -65,6 +65,44 @@
     UIImage *uiimageBackground = nil;
     NSString *nsstringThemeName;
 
+    //Set Font size Color and type
+    if (nsstringFontSizeValue == nil || nsstringFontColorValue == nil || nsstringFontTypeValue == nil)
+        {
+        NSArray *nsarrayPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *nsstringDocumentDirectory = [nsarrayPath objectAtIndex:0];
+        NSString *nsstringPath = [nsstringDocumentDirectory stringByAppendingPathComponent:@"config.plist"];
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:nsstringPath])
+            {
+            NSString *nsstringBundle = [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"];
+            [[NSFileManager defaultManager] copyItemAtPath:nsstringBundle toPath:nsstringPath error:nil];
+            }
+            
+        NSMutableDictionary *nsmutabledictionaryRoot = [[NSMutableDictionary alloc] initWithContentsOfFile:nsstringPath];
+        
+        //初始化文字大小、顏色、字型
+        nsstringFontSizeValue = [nsmutabledictionaryRoot objectForKey:@"FontSizeValue"];
+        nsuintegerFontSizeValue_UInt = [[nsmutabledictionaryRoot objectForKey:@"FontSizeValue_Int"] unsignedIntegerValue];
+
+        switch (nsuintegerFontSizeValue_UInt)
+            {
+            case 17:nsindexpathFontSizeLastIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+                break;
+            case 25:nsindexpathFontSizeLastIndexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+                break;
+            case 35:nsindexpathFontSizeLastIndexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+                break;
+            }
+
+        nsstringFontColorValue = [nsmutabledictionaryRoot objectForKey:@"FontColorValue"];
+        NSUInteger nsuintegerFontColorValue = [[nsmutabledictionaryRoot objectForKey:@"FontColorValue_Int"] unsignedIntegerValue];
+        nsindexpathFontColorLastIndexPath = [NSIndexPath indexPathForRow:nsuintegerFontColorValue inSection:1];
+
+        nsstringFontTypeValue = [nsmutabledictionaryRoot objectForKey:@"FontTypeValue"];
+        NSUInteger nsuintegerFontTypeValue = [[nsmutabledictionaryRoot objectForKey:@"FontTypeValue_Int"] unsignedIntegerValue];
+        nsindexpathFontTypeLastIndexPath = [NSIndexPath indexPathForRow:nsuintegerFontTypeValue inSection:1];
+        }
+
     switch (_nsuintegerTheme)
         {
         case 0:
@@ -620,7 +658,7 @@
                                     NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:20.0],
                                     NSForegroundColorAttributeName:[UIColor whiteColor]
                                     }];
-                                
+                            
                             NSDictionary *nsdictionaryNewData = [[NSDictionary alloc] initWithObjectsAndKeys:@"主題",@"name",@"紫黑",@"attribute", nil];
                             [nsmutablearrayFontSettings setObject:nsdictionaryNewData atIndexedSubscript:3];
                             }

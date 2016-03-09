@@ -42,6 +42,11 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
+                        <barButtonItem title="設定" id="E4B-ba-sN4">
+                            <connections>
+                                <segue destination="QFI-7j-qZ0" kind="show" identifier="fontSetViewShow" id="4uk-E7-SXe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="pm4-ml-WIw"/>
                         <barButtonItem title="入門指南" id="kdc-z2-Li9">
                             <connections>
@@ -51,11 +56,6 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Photo Comment" id="Cgc-lg-3yi">
                         <barButtonItem key="backBarButtonItem" title="Photo Comment" id="JAH-CU-fMt"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="ELM-2f-hOi">
-                            <connections>
-                                <action selector="newAlbum:" destination="bKO-4e-odQ" id="bqy-r1-vD8"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="6zF-1q-nEP">
                             <connections>
                                 <action selector="EditAlbum:" destination="bKO-4e-odQ" id="O35-0c-cOt"/>
@@ -65,9 +65,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
-                        <outlet property="uibarbuttonitemAdd" destination="ELM-2f-hOi" id="r2K-gL-gnB"/>
                         <outlet property="uibarbuttonitemEdit" destination="6zF-1q-nEP" id="pUA-m6-7Nh"/>
                         <outlet property="uibarbuttonitemExplantion" destination="kdc-z2-Li9" id="hwL-h4-PxJ"/>
+                        <outlet property="uibarbuttonitemSetting" destination="E4B-ba-sN4" id="R78-fT-Zha"/>
                         <segue destination="BCx-K6-hed" kind="show" identifier="showPhotoComment" id="eMd-TG-CC8"/>
                         <segue destination="BCx-K6-hed" kind="show" identifier="showCameraRoll" id="oWi-gE-fdC"/>
                     </connections>
@@ -649,5 +649,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="oWi-gE-fdC"/>
+        <segue reference="hcs-8v-ETL"/>
     </inferredMetricsTieBreakers>
 </document>

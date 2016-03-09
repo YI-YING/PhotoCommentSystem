@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "GridViewCollectionViewController.h"
 
-@interface RootListTableViewController : UITableViewController <UITextFieldDelegate, ThemeChange>
+@interface RootListTableViewController : UITableViewController <UITextFieldDelegate, ThemeChange, FontSetDelegate>
 
 //-------------------------------------------------------------------------------------------------------------------
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemAdd;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemExplantion;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemEdit;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *uibarbuttonitemSetting;
 
 //-------------------------------------------------------------------------------------------------------------------
 
