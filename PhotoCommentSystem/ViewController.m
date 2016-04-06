@@ -1447,12 +1447,15 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
         uitextfieldPasswardTextField.hidden = NO;
 
         UIImage *uiimageBackground = nil;
+        UIImage *uiimageEdit = nil;
         
         switch (_nsuintegerTheme)
             {
             case 0:
                 uiimageBackground = [UIImage imageNamed:@"ENCRYPTION_BACKGROUND.png"];
                 [_uicontrolEncrytTextView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+
+                [_uitextviewEncryptTextShow setBackgroundColor:[UIColor whiteColor]];
                 break;
 
             case 1:
@@ -1461,10 +1464,15 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
                 
                 uiimageBackground = [UIImage imageNamed:@"ENCRYPTION_BACKGROUND_White.png"];
                 [_uicontrolEncrytTextView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
+                
+                uiimageEdit = [UIImage imageNamed:@"ENCRYPTION_EDITOR_BACKGROUND_White.png"];
+                [_uitextviewEncryptTextShow setBackgroundColor:[UIColor colorWithPatternImage:uiimageEdit]];
                 break;
 
             default:
                 [_uicontrolEncrytTextView setBackgroundColor:[UIColor colorWithRed:0.84 green:0.92 blue:1 alpha:1]];
+
+                [_uitextviewEncryptTextShow setBackgroundColor:[UIColor whiteColor]];
                 break;
             }
 //        //分派給不同執行緒
