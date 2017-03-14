@@ -575,9 +575,10 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
         case 0:
             uiimageBackground = [UIImage imageNamed:@"COMMEMT_BACKGROUND.png"];
             uiimageUpperBar = [UIImage imageNamed:@"COMMENT_UPPER_BAR.png"];
+                
             [uicontrolEditCommentView setBackgroundColor:[UIColor colorWithPatternImage:uiimageBackground]];
             [_uitoolbarEditComment setBarTintColor:[UIColor colorWithPatternImage:uiimageUpperBar]];
-            
+
             [_uibarbuttonitemNone setTintColor:[UIColor whiteColor]];
             [_uilabelEncode setTextColor:[UIColor whiteColor]];
             [_uilabelKey setTextColor:[UIColor whiteColor]];
@@ -1588,7 +1589,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 {
     if (!uicontrolEditCommentView.hidden || !uicontrolEncodeView.hidden)
         return;
-    NSLog(@"%d",_nsuintegerAssetNum);
+    NSLog(@"%d",(unsigned int)_nsuintegerAssetNum);
 }
 
 //----------------------------------------------------------------------------------------
@@ -1597,7 +1598,7 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 {
     if (!uicontrolEditCommentView.hidden || !uicontrolEncodeView.hidden)
         return;
-    NSLog(@"%d",_nsuintegerAssetNum);
+    NSLog(@"%d",(unsigned int)_nsuintegerAssetNum);
 }
 
 //----------------------------------------------------------------------------------------
@@ -1991,8 +1992,11 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 {
     if (textView.text.length > commentTextLimit)
         {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"警告" message:@"超過最大字數不能輸入" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"超過最大字數不能輸入" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+
         textView.text = [textView.text substringToIndex:commentTextLimit];
         }
     
@@ -2055,37 +2059,37 @@ void AES_Decrypt(Byte block[], Byte key[], int keyLen)
 
 #pragma mark- UIAlertView Delegate Method
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    switch (buttonIndex)
-        {
-        case 0:
-            {
-            uitextviewCommentTextView.text = @"";
-            uitextfieldPasswardTextField.text = @"";
-        
-            uibarbuttonitemEditCommentButton.enabled = NO;
-            uibarbuttonitemEditFontButton.enabled = NO;
-            uibarbuttonitemTrashButton.enabled = NO;
-            uiswitchPasswardSwitch.on = NO;
-            uitextfieldPasswardTextField.hidden = YES;
-
-            uicontrolEditCommentView.hidden = NO;
-            }
-            break;
-        case 1:
-            {
-            self.uilabelDecodeWrongAlert.text = @"";
-            uitextfieldEncodeTextField.text = @"";
-            uibarbuttonitemEditCommentButton.enabled = NO;
-            uibarbuttonitemEditFontButton.enabled = NO;
-            uibarbuttonitemTrashButton.enabled = NO;
-    
-            uicontrolEncodeView.hidden = NO;
-            }
-            break;
-        }
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    switch (buttonIndex)
+//        {
+//        case 0:
+//            {
+//            uitextviewCommentTextView.text = @"";
+//            uitextfieldPasswardTextField.text = @"";
+//        
+//            uibarbuttonitemEditCommentButton.enabled = NO;
+//            uibarbuttonitemEditFontButton.enabled = NO;
+//            uibarbuttonitemTrashButton.enabled = NO;
+//            uiswitchPasswardSwitch.on = NO;
+//            uitextfieldPasswardTextField.hidden = YES;
+//
+//            uicontrolEditCommentView.hidden = NO;
+//            }
+//            break;
+//        case 1:
+//            {
+//            self.uilabelDecodeWrongAlert.text = @"";
+//            uitextfieldEncodeTextField.text = @"";
+//            uibarbuttonitemEditCommentButton.enabled = NO;
+//            uibarbuttonitemEditFontButton.enabled = NO;
+//            uibarbuttonitemTrashButton.enabled = NO;
+//    
+//            uicontrolEncodeView.hidden = NO;
+//            }
+//            break;
+//        }
+//}
 
 //----------------------------------------------------------------------------------------
 #pragma mark- Perform Yes Method | No Method

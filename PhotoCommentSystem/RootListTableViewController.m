@@ -44,6 +44,8 @@ static NSString * const nsstringFontSetViewSegue = @"fontSetViewShow";
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     //Get SandBox Path
     NSArray *nsarrayPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *nsstringDocumentDirectory = [nsarrayPath objectAtIndex:0];
@@ -316,7 +318,7 @@ static NSString * const nsstringFontSetViewSegue = @"fontSetViewShow";
         
         PHFetchResult *phfetchresultAssets = [PHAsset fetchAssetsWithOptions:nil];
 
-        nsstringSubTitle = [NSString stringWithFormat:@"%i",phfetchresultAssets.count];
+        nsstringSubTitle = [NSString stringWithFormat:@"%d",(unsigned int)phfetchresultAssets.count];
         }
     else
         {
@@ -342,7 +344,7 @@ static NSString * const nsstringFontSetViewSegue = @"fontSetViewShow";
         
         NSArray *nsarrayAssets = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[_nsstringSandBox stringByAppendingPathComponent:[NSString stringWithFormat:@"Photo Comment/%@",_nsmutablearrayAlbumsFetchResults[indexPath.row]]] error:nil];
             
-        nsstringSubTitle = [NSString stringWithFormat:@"%i",nsarrayAssets.count];
+        nsstringSubTitle = [NSString stringWithFormat:@"%d",(unsigned int)nsarrayAssets.count];
         }
     UITextField *uitextfield = nil;
     UILabel *uilabel = nil;

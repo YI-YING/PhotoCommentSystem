@@ -99,6 +99,7 @@ static CGSize cgsizeAssetGridThumbnailSize;
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     //改變導覽列Back Button字型與大小，
     [self.navigationItem.backBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"DFWaWaTC-W5" size:17.0]} forState:UIControlStateNormal];
     

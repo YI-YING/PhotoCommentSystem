@@ -28,7 +28,7 @@
 
 //----------------------------------------------------------------------------------------
 
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, FontSetDelegate, UITextFieldDelegate,UITextViewDelegate, UIAlertViewDelegate, UIGestureRecognizerDelegate, AlbumChangeDelegate>
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, FontSetDelegate, UITextFieldDelegate,UITextViewDelegate, UIGestureRecognizerDelegate, AlbumChangeDelegate>
 
 //----------------------------------------------------------------------------------------
 
