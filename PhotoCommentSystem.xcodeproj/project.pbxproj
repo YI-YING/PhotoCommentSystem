@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3252F21E779BB600BC45C1 /* GuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3252F11E779BB600BC45C1 /* GuideView.m */; };
 		6227FB211C1FFA6D00BE8AAD /* Kaiti.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 6227FB201C1FFA6D00BE8AAD /* Kaiti.ttc */; };
 		626E3E7D1BC69250002B3492 /* RootListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 626E3E7C1BC69250002B3492 /* RootListTableViewController.m */; };
 		626E3E801BC69DFF002B3492 /* GridViewCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 626E3E7F1BC69DFF002B3492 /* GridViewCollectionViewController.m */; };
@@ -33,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D3252F01E779BB600BC45C1 /* GuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideView.h; sourceTree = "<group>"; };
+		2D3252F11E779BB600BC45C1 /* GuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideView.m; sourceTree = "<group>"; };
 		6227FB201C1FFA6D00BE8AAD /* Kaiti.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kaiti.ttc; sourceTree = "<group>"; };
 		626E3E7B1BC69250002B3492 /* RootListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootListTableViewController.h; sourceTree = "<group>"; };
 		626E3E7C1BC69250002B3492 /* RootListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootListTableViewController.m; sourceTree = "<group>"; };
@@ -83,12 +86,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62BD86121BADBE450003981D = {
+		2D3252ED1E77993100BC45C1 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
 				62BD86391BADBEAA0003981D /* MediaPlayer.framework */,
 				62BD86371BADBE9F0003981D /* MobileCoreServices.framework */,
 				62BD86351BADBE8E0003981D /* Photos.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		62BD86121BADBE450003981D = {
+			isa = PBXGroup;
+			children = (
+				2D3252ED1E77993100BC45C1 /* Framework */,
 				62BD861D1BADBE450003981D /* PhotoCommentSystem */,
 				62BD861C1BADBE450003981D /* Products */,
 			);
@@ -105,9 +116,6 @@
 		62BD861D1BADBE450003981D /* PhotoCommentSystem */ = {
 			isa = PBXGroup;
 			children = (
-				62BD86411BADC0210003981D /* Custom Fonts */,
-				62BD86211BADBE450003981D /* AppDelegate.h */,
-				62BD86221BADBE450003981D /* AppDelegate.m */,
 				626E3E7B1BC69250002B3492 /* RootListTableViewController.h */,
 				626E3E7C1BC69250002B3492 /* RootListTableViewController.m */,
 				626E3E7E1BC69DFF002B3492 /* GridViewCollectionViewController.h */,
@@ -126,11 +134,14 @@
 				62FAB0561BD34F81007DFC17 /* CreateToAlbumTableViewController.m */,
 				62DC74281BD7A793008ACD03 /* ExplantionViewController.h */,
 				62DC74291BD7A793008ACD03 /* ExplantionViewController.m */,
+				2D3252F01E779BB600BC45C1 /* GuideView.h */,
+				2D3252F11E779BB600BC45C1 /* GuideView.m */,
 				62EDB44A1BD6EDBB00451798 /* Config.plist */,
 				629484951BE0659F00D2BCA9 /* AlbumName.plist */,
 				62BD862A1BADBE450003981D /* Assets.xcassets */,
 				62BD862C1BADBE450003981D /* LaunchScreen.storyboard */,
 				62BD862F1BADBE450003981D /* Info.plist */,
+				62BD86411BADC0210003981D /* Custom Fonts */,
 				62BD861E1BADBE450003981D /* Supporting Files */,
 			);
 			path = PhotoCommentSystem;
@@ -139,6 +150,8 @@
 		62BD861E1BADBE450003981D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				62BD86211BADBE450003981D /* AppDelegate.h */,
+				62BD86221BADBE450003981D /* AppDelegate.m */,
 				62BD861F1BADBE450003981D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -241,6 +254,7 @@
 				62BD86231BADBE450003981D /* AppDelegate.m in Sources */,
 				62DC742A1BD7A793008ACD03 /* ExplantionViewController.m in Sources */,
 				62BD86201BADBE450003981D /* main.m in Sources */,
+				2D3252F21E779BB600BC45C1 /* GuideView.m in Sources */,
 				626E3E831BC69E75002B3492 /* GridViewCellCollectionViewCell.m in Sources */,
 				626E3E801BC69DFF002B3492 /* GridViewCollectionViewController.m in Sources */,
 			);
