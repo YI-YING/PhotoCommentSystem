@@ -184,15 +184,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mxD-is-JwA">
-                                <rect key="frame" x="0.0" y="95" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                             </imageView>
                             <textView hidden="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi1-y7-rea">
-                                <rect key="frame" x="150" y="264" width="150" height="100"/>
+                                <rect key="frame" x="0.0" y="328" width="320" height="100"/>
                                 <color key="backgroundColor" red="0.50581991792929293" green="0.50581991792929293" blue="0.50581991792929293" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="TSh-6w-SvI"/>
-                                    <constraint firstAttribute="height" constant="100" id="Vkw-p6-SCI"/>
-                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -384,20 +380,22 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="5i2-dq-Dff" firstAttribute="top" secondItem="UqA-Zx-xfM" secondAttribute="bottom" id="7pi-wh-5RU"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mxD-is-JwA" secondAttribute="bottom" constant="21" id="JhO-GB-axV"/>
+                            <constraint firstItem="Hi1-y7-rea" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="264" id="D25-6G-ESf"/>
+                            <constraint firstItem="Hi1-y7-rea" firstAttribute="leading" secondItem="mxD-is-JwA" secondAttribute="leading" id="GCC-rn-FWm"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mxD-is-JwA" secondAttribute="bottom" id="JhO-GB-axV"/>
                             <constraint firstItem="UqA-Zx-xfM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="L5A-8a-Cth"/>
                             <constraint firstAttribute="trailing" secondItem="UqA-Zx-xfM" secondAttribute="trailing" id="Ost-wx-1C3"/>
                             <constraint firstItem="5i2-dq-Dff" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="VQb-Mq-TeV"/>
-                            <constraint firstItem="Hi1-y7-rea" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="200" id="c4M-GU-uaf"/>
+                            <constraint firstItem="Hi1-y7-rea" firstAttribute="trailing" secondItem="mxD-is-JwA" secondAttribute="trailing" id="du9-KG-Ncp"/>
                             <constraint firstItem="UqA-Zx-xfM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ghV-Oc-4CU"/>
-                            <constraint firstItem="mxD-is-JwA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="31" id="hwg-Ox-af2"/>
+                            <constraint firstItem="mxD-is-JwA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="hwg-Ox-af2"/>
                             <constraint firstAttribute="trailing" secondItem="mxD-is-JwA" secondAttribute="trailing" id="i5m-43-4S0"/>
                             <constraint firstItem="mxD-is-JwA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="j6S-DR-GWm"/>
                             <constraint firstAttribute="trailing" secondItem="QAv-Cw-gXu" secondAttribute="trailing" id="kM9-6b-3HI"/>
                             <constraint firstItem="QAv-Cw-gXu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="mbh-yp-bAP"/>
                             <constraint firstAttribute="trailing" secondItem="5i2-dq-Dff" secondAttribute="trailing" id="nno-QD-lMZ"/>
                             <constraint firstItem="QAv-Cw-gXu" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="36" id="oXd-14-BDW"/>
-                            <constraint firstItem="Hi1-y7-rea" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="150" id="zRH-Cl-HkL"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Hi1-y7-rea" secondAttribute="bottom" constant="8" symbolic="YES" id="ulB-4H-ryM"/>
                         </constraints>
                         <connections>
                             <action selector="backgroundTouch:" destination="vXZ-lx-hvc" eventType="touchDown" id="rRu-5e-Ha9"/>
@@ -472,7 +470,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1084" y="238"/>
+            <point key="canvasLocation" x="1083.75" y="237.67605633802816"/>
         </scene>
         <!--哪裡？-->
         <scene sceneID="fKC-9k-PBf">
@@ -597,7 +595,7 @@
         <image name="MAINPAGE_BACKGROUND" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4uk-E7-SXe"/>
+        <segue reference="hcs-8v-ETL"/>
         <segue reference="oWi-gE-fdC"/>
     </inferredMetricsTieBreakers>
 </document>
